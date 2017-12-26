@@ -1,0 +1,48 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>supplier</title>
+
+
+</head>
+	  
+	
+			<!-- <form action="AddSupplier" method="post">-->
+
+	<form:form  method="POST" action="AddSupplier" modelAttribute="supplier" >
+				<table align="center"class="table table-striped table-bordered" cellspacing="2" style="width:50%">
+			<tr>
+				<td align= "center" colspan="2">Supplier Module</td>
+			</tr>
+			
+		<tr>
+				<td></td>
+				<td><form:input path="supplierId" type="hidden"/></td>
+			</tr>
+		
+			<tr>
+				<td>Supplier Name</td>
+				<!-- <td><input type="text" name="suppliername"/></td> -->
+				<td><form:input path="suppliername"/></td>
+			</tr>
+		
+			<tr>
+				<td >Supplier Address</td>
+				<!-- <td><input type="text" name="supplieraddress"/></td> -->
+				<td><form:input path="supplieraddress"/></td>
+			</tr>
+	
+		<tr>
+			<td colspan="2">
+				<center><input type="submit" value="Insert" class="btn btn-success"/>
+				</center>
+			</td>
+		</tr>
+	</table>
+	</form:form>
+		
+
+</body>
+</html>

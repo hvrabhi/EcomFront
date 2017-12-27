@@ -7,7 +7,8 @@
 
 
 </head>
-	  
+	  <jsp:include page="index.jsp"></jsp:include>
+    <body>
 	
 			<!-- <form action="AddSupplier" method="post">-->
 
@@ -17,21 +18,16 @@
 				<td align= "center" colspan="2">Supplier Module</td>
 			</tr>
 			
-		<tr>
-				<td></td>
-				<td><form:input path="supplierId" type="hidden"/></td>
+		
+			<tr>
+				<td><form:label path="suppliername">Supplier Name</form:label></td>
+                    <td><form:input path="suppliername"/></td>
+                
 			</tr>
 		
 			<tr>
-				<td>Supplier Name</td>
-				<!-- <td><input type="text" name="suppliername"/></td> -->
-				<td><form:input path="suppliername"/></td>
-			</tr>
-		
-			<tr>
-				<td >Supplier Address</td>
-				<!-- <td><input type="text" name="supplieraddress"/></td> -->
-				<td><form:input path="supplieraddress"/></td>
+				<td><form:label path="supplieraddress">Supplier Address</form:label></td>
+                <td><form:input path="supplieraddress"/></td>
 			</tr>
 	
 		<tr>

@@ -28,7 +28,16 @@
 				<li><a href="#">Login</a></li>
 		
 				<li><a href="register">Registration</a></li>
-		
+			<li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin List <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+        
+            <li><a href="getsupplier">Supplier List</a></li>
+        
+            <li><a href="getcategory">Category List</a></li>
+            <li><a href="#">Product List</a></li>
+          </ul>
+        </li>
 				<li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin <span class="caret"></span></a>
           <ul class="dropdown-menu">

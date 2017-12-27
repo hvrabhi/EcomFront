@@ -2,11 +2,15 @@
 <html>
     <head>
     </head>
+    <jsp:include page="index.jsp"></jsp:include>
     <body>
         <h3>Welcome, Enter The Employee Details</h3>
         <form:form method="POST" action="saveUser" modelAttribute="users">
-             <table>
-                <tr>
+             <table align="center"class="table table-striped table-bordered" cellspacing="2" style="width:50%">
+			<tr>
+				<td align= "center" colspan="2">Supplier Module</td>
+			</tr>
+			   <tr>
                     <td><form:label path="username">username</form:label></td>
                     <td><form:input path="username"/></td>
                 </tr>

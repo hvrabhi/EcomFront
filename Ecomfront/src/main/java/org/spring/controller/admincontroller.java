@@ -1,10 +1,12 @@
 package org.spring.controller;
 
+
+import java.util.List;
+
 import org.spring.DAO.CategoryDAO;
 import org.spring.DAO.SupplierDAO;
 import org.spring.model.Category;
 import org.spring.model.Supplier;
-import org.spring.model.Users;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,10 +19,11 @@ import org.springframework.web.servlet.ModelAndView;
 public class admincontroller {
 
 	@Autowired
-	 private SupplierDAO supplierDAO;
+	 SupplierDAO supplierDAO;
 	
 	@Autowired
 	CategoryDAO categoryDAO;
+	
 	
 	 @RequestMapping(value="/supplier",method=RequestMethod.GET)
 	    public String showSupplier(@ModelAttribute("supplier")Supplier supplier,Model m)
@@ -30,6 +33,7 @@ public class admincontroller {
 	        return "supplier";
 	     
 	    }
+	 
 	 @RequestMapping(value="AddSupplier",method=RequestMethod.POST)
 	    public String addSupplier(@ModelAttribute("supplier")Supplier supplier,Model m)
 	    {
@@ -41,7 +45,6 @@ public class admincontroller {
 	    public String showCategory(@ModelAttribute("category")Category category,Model m)
 	    {
 	       m.addAttribute("category",new Category());
-	         
 	        return "category";
 	     
 	    }
@@ -52,6 +55,23 @@ public class admincontroller {
 	                  
 	        return "redirect:/";
 	    }
-
+	 
+	 @RequestMapping(value="getcategory",method=RequestMethod.GET)
+	    public String showcategory(@ModelAttribute("category")Category category,Model m)
+	    { 
+	        List<Category> listCategory=categoryDAO.retrieveCategory();
+	    
+	        m.addAttribute("categoryList",listCategory);
+	        return "getcategory";
+	    }
+	 @RequestMapping(value="getsupplier",method=RequestMethod.GET)
+	    public String showsupplier(@ModelAttribute("supplier")Supplier supplier,Model m)
+	    { 
+	        List<Supplier> listSupplier=supplierDAO.retrieveSupplier();
+	    
+	        m.addAttribute("supplierList",listSupplier);
+	        return "getsupplier";
+	    }
+	     
 }
 

@@ -20,7 +20,7 @@
 	
 		<c:forEach items="${categoryList}" var="category">
 			<tr bgcolor="#85C1E9">
-				<td>${category.id}</td>
+				<td>${category.cid}</td>
 				<td>${category.cname}</td>
 				<td>
 						<a class="btn btn-danger" href="#"/>DELETE</a>

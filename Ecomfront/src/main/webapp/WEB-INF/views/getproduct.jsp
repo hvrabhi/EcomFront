@@ -34,8 +34,7 @@
 						<td><c:out value="${product.instock}" /></td>
 						<td><c:out value="${product.cid}" /></td>
 						<td><c:out value="${product.sid}" /></td>
-						
-						<td><nobr>
+									<td><nobr>
 <a class="btn btn-primary" href="editproduct/${product.id}"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Edit</a>
 
 <a class="btn btn-primary"  href="removeproduct/${product.id}"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Delete

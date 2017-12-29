@@ -23,8 +23,8 @@
 				<td>${category.id}</td>
 				<td>${category.cname}</td>
 				<td>
-						<a class="btn btn-danger" href="#"/>DELETE</a>
-						<a class="btn btn-success" href="#"/>EDIT</a>
+						<a class="btn btn-danger" href="removecategory/${category.id}"/>DELETE</a>
+						<a class="btn btn-success" href="editcategory/${category.id}"/>EDIT</a>
 				</td>
 			</tr>
 		</c:forEach>

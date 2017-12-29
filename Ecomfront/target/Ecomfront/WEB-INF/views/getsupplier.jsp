@@ -19,7 +19,7 @@
 	
 	<c:forEach items="${supplierList}" var="supplier">
 		<tr bgcolor="#F7DC6F  ">
-			<td>${supplier.sid}</td>
+			<td>${supplier.id}</td>
 			<td>${supplier.suppliername}</td>
 			<td>${supplier.supplieraddress}</td>
 			<td>

@@ -31,6 +31,27 @@
 		</tr>
 	</table>
 	</form:form>
+		<table class="table table-striped table-bordered" style="width:100%">
+		
+			<tr bgcolor="gray">
+				<td>Category ID</td>
+				<td>Category Name</td>
+				<td>Operation</td>
+			</tr>
+	
+	
+		<c:forEach items="${categoryList}" var="category">
+			<tr bgcolor="#85C1E9">
+				<td>${category.id}</td>
+				<td>${category.cname}</td>
+				<td>
+						<a class="btn btn-danger" href="removecategory/${category.id}"/>DELETE</a>
+						<a class="btn btn-success" href="editcategory/${category.id}"/>EDIT</a>
+				</td>
+			</tr>
+		</c:forEach>
+
+		</table><br>
 		
 </body>
 </html>

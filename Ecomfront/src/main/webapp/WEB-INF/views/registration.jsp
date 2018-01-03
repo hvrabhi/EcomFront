@@ -6,41 +6,64 @@
     <body>
         <h3>Welcome, Enter The Employee Details</h3>
         <form:form method="POST" action="saveUser" modelAttribute="users">
-             <table align="center"class="table table-striped table-bordered" cellspacing="2" style="width:50%">
-			<tr>
-				<td align= "center" colspan="2">Supplier Module</td>
-			</tr>
-			   <tr>
-                    <td><form:label path="username">username</form:label></td>
-                    <td><form:input path="username"/></td>
-                </tr>
-                <tr>
-                    <td><form:label path="firstname">firstname</form:label></td>
-                    <td><form:input path="firstname"/></td>
-                </tr>
-                <tr>
-                    <td><form:label path="lastname">last name</form:label></td>
-                    <td><form:input path="lastname"/></td>
-                </tr>
-                
-                
-                
-                <tr>
-                    <td><form:label path="email">email</form:label></td>
-                    <td><form:input path="email"/></td>
-                </tr>
-                <tr>
-                    <td><form:label path="contact">Contact Number</form:label></td>
-                    <td><form:input path="contact"/></td>
-                </tr>
-                
-                
-                
-                
-                <tr>
-                    <td><input type="submit" value="Submit"/></td>
-                </tr>
-            </table>
+            <div class="form-group">
+		<label for="First Name" class="col-xs-4 control-label">First Name</label>
+		<div class="col-xs-4">
+			<form:input name="id" path="firstName" placeholder="User First Name" class="form-control" />
+		</div>
+	</div>
+	
+	
+	<br><br>
+	
+	<div class="form-group">
+		<label for="First Name" class="col-xs-4 control-label">Last Name</label>
+		<div class="col-xs-4">
+			<form:input name="id" path="lastName" placeholder="User First Name" class="form-control" />
+		</div>
+	</div>
+	
+	
+	<br><br>
+
+	<div class="form-group">
+		<label for="Supplier Name" class="col-xs-4 control-label">Email</label>
+		<div class="col-xs-4">
+			<form:input name="id" path="email" placeholder="Email" class="form-control" />
+		</div>
+	</div>
+<br>
+	<div class="form-group">
+		<label for="code" class="col-xs-4 control-label">Password</label>
+		<div class="col-xs-4">
+			<form:input name="password"  path="password" placeholder="User Password" class="form-control" />
+		</div>
+	</div>
+<br>
+	<div class="form-group">
+		<label for="code" class="col-xs-4 control-label">Phone Number</label>
+		<div class="col-xs-4">
+			<form:input name="phone"  path="phone" placeholder="User Phone" class="form-control" />
+		</div>
+	</div>
+
+
+<br>
+	<div class="form-group">
+	<label for="code" class="col-xs-4 control-label"></label>
+		
+		<div class="col-xs-4">
+		
+			
+	
+		<input type="submit" value="Add User" id="btn-add" class="btn btn-primary" >
+	
+	
+
+		
+		</div>
+	</div>
+
         </form:form>
     </body>
 </html>

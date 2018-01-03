@@ -56,7 +56,7 @@
 			<td>${supplier.supplieraddress}</td>
 			<td>
 			
-				<a class="btn btn-danger" href="editsupplier/${supplier.id}"/>EDIT</a>/
+				<a class="btn btn-danger" href="editsupplier/${supplier.id}"/>EDIT </a>/
 				<a class="btn btn-success" href="removesupplier/${supplier.id}"/>DELETE</a>
 			</td>
 		</tr>

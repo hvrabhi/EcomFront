@@ -25,20 +25,11 @@
 	
 		<div class="collapse navbar-collapse navbar-right" id="bs-Abhilash-navbar-collapse-1">
 			<ul class="nav navbar-nav nav-tabs">
-				<li><a href="#">Login</a></li>
+				<li><a href="login">Login</a></li>
 		
 				<li><a href="register">Registration</a></li>
+			
 			<li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin List <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-        
-            <li><a href="getsupplier">Supplier List</a></li>
-        
-            <li><a href="getcategory">Category List</a></li>
-            <li><a href="getproduct">Product List</a></li>
-          </ul>
-        </li>
-				<li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin <span class="caret"></span></a>
           <ul class="dropdown-menu">
         
@@ -49,6 +40,8 @@
           </ul>
         </li></ul>
 	</div></div>
+			<li><a href="admin">Admin</a></li>
+	
 <body  style = "background : url(http://awallpapersimages.com/wp-content/uploads/2017/11/China-Wall-Image.jpg); background-size:100% ;">
 
 

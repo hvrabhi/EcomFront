@@ -19,16 +19,7 @@
 
 
 
-<h3 align="center">
-			<c:if test="$(category.id==0}">
-		       Add New Item
-	            </c:if>
-			<c:if test="${!empty product.id}">
-		      Update Product for Id: <c:out value="${product.id}" />
-				 <form:hidden path="id"/> 
-			</c:if>
-			</h3>
-
+			
 		
 	<div class="form-group">
 		<div class="col-xs-4">
@@ -75,7 +66,7 @@
 <%-- 
 	<div class="form-group">
 		<label for="Product Price" class="col-xs-4 control-label">Product instock</label>
-		<div class="col-xs-4">
+			<div class="col-xs-4">
 			<form:input name="id" path="instock" placeholder="Product instock" class="form-control" />
 		</div>
 	</div>
@@ -108,15 +99,17 @@
 	</div>
 	
 	
-	
-	<div class="form-group">
-		<label for="Product Image" class="col-xs-4 control-label">Product Image</label>
-		<div class="col-xs-4">
-		<input type="file" name="file" class="form-control" />
-		</div>
-	</div>
-	
-
+	<table>
+	<tr>
+						<td><form:label class="btn btn-default btn-block"
+								path="image">
+								<spring:message text="Image" />
+							</form:label></td>
+						<td><form:input type="file"
+								class=" btn btn-default btn-block form-control" path="image"
+								required="true" /></td>
+					</tr>
+</table>
 
 	<div class="form-group">  
 	<label for="code" class="col-xs-4 control-label"></label>
@@ -137,6 +130,42 @@
 	</div>
 </form:form>
 
+
+<table class="table table-striped table-bordered"  style="width: 80%">
+			<thead>
+				<tr>
+					<th width="2%">S.N</th>
+					<th width="2%">product ID</th>
+					<th width="2%">product Name</th>
+					<th width="2%">product Description</th>
+					<th width="2%">Product Price</th>
+					<th width="2%">Product InStock</th>
+					<th width="2%">Product Category</th>
+					<th width="2%">Product Supplier</th>
+					<th width="2%">Product Action</th>
+				</tr>
+			</thead>
+			<tbody>
+				<c:forEach items="${productList}" var="product" varStatus="loopCounter">
+					<tr>
+						<td><c:out value="${loopCounter.count}" /></td>
+						<td><c:out value="${product.id}" /></td>
+						<td><c:out value="${product.name}" /></td>
+						<td><c:out value="${product.description}" /></td>
+						<td><c:out value="${product.price}" /></td>
+						<td><c:out value="${product.instock}" /></td>
+						<td><c:out value="${product.cid}" /></td>
+						<td><c:out value="${product.sid}" /></td>
+									<td><nobr>
+<a class="btn btn-primary" href="editproduct/${product.id}"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Edit</a>
+
+<a class="btn btn-primary"  href="removeproduct/${product.id}"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Delete</a>
+
+							</nobr></td>
+					</tr>
+				</c:forEach>
+			</tbody>
+		</table>
 
 </body>
 </html>

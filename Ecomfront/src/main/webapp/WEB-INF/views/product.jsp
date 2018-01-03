@@ -66,7 +66,7 @@
 <%-- 
 	<div class="form-group">
 		<label for="Product Price" class="col-xs-4 control-label">Product instock</label>
-		<div class="col-xs-4">
+			<div class="col-xs-4">
 			<form:input name="id" path="instock" placeholder="Product instock" class="form-control" />
 		</div>
 	</div>
@@ -99,15 +99,17 @@
 	</div>
 	
 	
-	
-	<div class="form-group">
-		<label for="Product Image" class="col-xs-4 control-label">Product Image</label>
-		<div class="col-xs-4">
-		<input type="file" name="file" class="form-control" />
-		</div>
-	</div>
-	
-
+	<table>
+	<tr>
+						<td><form:label class="btn btn-default btn-block"
+								path="image">
+								<spring:message text="Image" />
+							</form:label></td>
+						<td><form:input type="file"
+								class=" btn btn-default btn-block form-control" path="image"
+								required="true" /></td>
+					</tr>
+</table>
 
 	<div class="form-group">  
 	<label for="code" class="col-xs-4 control-label"></label>

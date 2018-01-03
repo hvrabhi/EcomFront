@@ -6,6 +6,8 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.util.Date;
 import java.util.List;
+import java.nio.file.*;
+
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -38,6 +40,8 @@ public class admincontroller {
 	@Autowired
 	ProductDAO productDAO;
 
+	private Path path;
+
 //suppliercontroller
 	 @RequestMapping(value="/supplier",method=RequestMethod.GET)
 	    public String showSupplier(@ModelAttribute("supplier")Supplier supplier, BindingResult result, Model m, RedirectAttributes redirectAttrs  )
@@ -58,15 +62,6 @@ public class admincontroller {
 	        return "redirect:/supplier";
 	    }
 	 
-//Noneed
-	 @RequestMapping(value="getsupplier",method=RequestMethod.GET)
-	    public String showsupplier(@ModelAttribute("supplier")Supplier supplier,Model m)
-	    { 
-	        List<Supplier> listSupplier=supplierDAO.retrieveSupplier();    
-	        m.addAttribute("supplierList",listSupplier);
-	        return "getsupplier";
-	    }
-//
 	 @RequestMapping("editsupplier/{id}")
 		public String editSupplier(@PathVariable("id") int id, Model model,RedirectAttributes attributes) {
 			System.out.println("editCategory");
@@ -75,7 +70,8 @@ public class admincontroller {
 		}
 
 		@RequestMapping(value = "removesupplier/{id}")
-		public String removeSupplier(@PathVariable("id") int id,RedirectAttributes attributes) throws Exception {supplierDAO.removeSupplierById(id);
+		public String removeSupplier(@PathVariable("id") int id,RedirectAttributes attributes) throws Exception 
+		{supplierDAO.removeSupplierById(id);
 			attributes.addFlashAttribute("DeleteMessage", "supplier has been deleted Successfully");
 			return "redirect:/supplier";
 		}
@@ -98,21 +94,13 @@ public class admincontroller {
 	                  
 	        return "redirect:/category";
 	    }
-//Noneed
-	 @RequestMapping(value="getcategory",method=RequestMethod.GET)
-	    public String showcategory(@ModelAttribute("category")Category category,Model m)
-	    { 
-	        List<Category> listCategory=categoryDAO.retrieveCategory();	    
-	        m.addAttribute("categoryList",listCategory);
-	        return "getcategory";
-	    }
- //
 	 @RequestMapping("editcategory/{id}")
 		public String editCategory(@PathVariable("id") int id, Model model,RedirectAttributes attributes) {
 			System.out.println("editCategory");
 			attributes.addFlashAttribute("category", this.categoryDAO.getCategoryById(id));
 			return "redirect:/category";
 		}
+	                                                      
 		@RequestMapping(value ="removecategory/{id}")
 		public String removeCategory(@PathVariable("id") int id,RedirectAttributes attributes) throws Exception {
 			categoryDAO.removeCategoryById(id);
@@ -132,61 +120,34 @@ public class admincontroller {
 			
 		}
 
+	
+		
 	 @RequestMapping(value="/saveProduct")
-		public String updateproduct(@ModelAttribute("product") Product product,HttpServletRequest request,Model m,
-				@RequestParam("file") MultipartFile file){
-			
-			String image=uploadFile(file);
-			if(!image.isEmpty())
-			{
-				product.setImage(image);
+		public String updateproduct(@ModelAttribute("product") Product product,HttpServletRequest request,Model m, RedirectAttributes attributes){
 				
-			}
-				product.setInstock(true);
-				  productDAO.saveProduct(product);
-			
-			
-	        return "redirect:/product";
-		}
-		
-		
-		
-		
-		
-		public  String uploadFile(MultipartFile file)
-		{
-			String name=null;
-			if (!file.isEmpty()) {
+			attributes.addFlashAttribute("SuccessMessage", "Product has been added/Updated Successfully");
+			productDAO.saveProduct(product);
+			product.setInstock(true);
+			MultipartFile file = product.getImage();
+			String rootDirectory = request.getSession().getServletContext().getRealPath("/");
+			path = Paths.get(rootDirectory + "\\WEB-INF\\resources\\images\\" + product.getId() + ".jpg");
+			if (file != null && !file.isEmpty()) {
 				try {
-					byte[] bytes = file.getBytes();
-
-					String rootPath = System.getProperty("catalina.base");
-					File dir = new File(rootPath +"wtpwebapps/Ecomfront/WEB-INF/resources/images");
-					if (!dir.exists())
-						dir.mkdirs();
-					  name=String.valueOf(new Date().getTime()+".jpg");
-					 // Create the file on server
-					File serverFile = new File(rootPath + File.separator);
-					BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(serverFile));
-					stream.write(bytes);
-					stream.close();
-					return  name;
+					System.out.println("Image Saving Start");
+					file.transferTo(new File(path.toString()));
+					System.out.println("Image Saved");
 				} catch (Exception e) {
-					return "You failed to upload " + name + " => " + e.getMessage();
+					e.printStackTrace();
+					System.out.println("Error");
+					throw new RuntimeException("item image saving failed.", e);
 				}
-			} else {
-				return "You failed to upload " + name+ " because the file was empty.";
 			}
-		}
-
-		 @RequestMapping(value="getproduct",method=RequestMethod.GET)
-		    public String showproduct(@ModelAttribute("product")Product product,Model m)
-		    { 
-		        List<Product> listProduct=productDAO.retrieveProduct();
-		    
-		        m.addAttribute("productList",listProduct);
-		        return "getproduct";
-		    }
+			return "redirect:/product";
+		}	
+		
+		
+		
+		
 		 @RequestMapping(value="editproduct/{id}", method=RequestMethod.GET)
 			public String editProduct(@PathVariable("id") int id,RedirectAttributes attributes)
 			{
@@ -197,10 +158,18 @@ public class admincontroller {
 			@RequestMapping(value="removeproduct/{id}",method=RequestMethod.GET)
 			public String removeProduct(@PathVariable("id") int id,RedirectAttributes attributes)
 			{
-				productDAO.removeProducyById(id);
+				productDAO.removeProductyById(id);
 				attributes.addFlashAttribute("DeleteMessage", "Product has been deleted Successfully");
 				return "redirect:/product";
 			   }
 
+			 @RequestMapping(value="admin",method=RequestMethod.GET)
+			public String adminpage(){
+				return "admin";
+			}
+			 @RequestMapping(value="home",method=RequestMethod.GET)
+				public String homepage(){
+					return "home";
+				}
 }
 

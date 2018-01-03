@@ -39,9 +39,22 @@ public class indexcontroller {
 	
 	@RequestMapping(value="saveUser", method=RequestMethod.POST)
 	public String createUser(@ModelAttribute("users") Users users){
+		users.setEnabled(true);
+		users.setRole("ROLE_USER");
 		userDAO.saveUser(users);
 		return "redirect:/";
 	}
 
+	@RequestMapping(value="/login", method=RequestMethod.GET)
+	public String gotologin()
+	{
+		return "login";
+	}
+	@RequestMapping(value="/userLogged", method=RequestMethod.POST)
+	public String loggedin()
+	{
+		return "redirect:/home";
+	}
+	
 
 }

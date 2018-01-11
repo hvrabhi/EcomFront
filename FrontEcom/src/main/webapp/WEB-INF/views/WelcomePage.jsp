@@ -42,7 +42,7 @@
 			</div>
 			<div id="navbar" class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
-					<li class="active"><a href="index.html"><span
+					<li class="active"><a href="#"><span
 							class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a></li>
 					
 

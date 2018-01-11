@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Category Product list</title>
 <link href="<c:url value="/resources/css/itempage.css" />"
 	rel="stylesheet">
 	
@@ -28,12 +28,12 @@ $(document).ready(function(){
 			<div class="col-xs-3 w3-animate-zoom">
 				<div class="img">
 					<a href="${ProductList}"> <img height="192px"
-						width="192px" alt="${product.id}"
-						src="<c:url value="/resources/images/${product.id }.jpg"></c:url>">
+						width="192px" alt="${product.pid}"
+						src="<c:url value="/resources/images/${product.pid }.jpg"></c:url>">
 					</a>
 
-					<%-- <img height="192px" width="192px"  alt="${product.id}"
-						src="<c:url value="/resources/images/product/${product.id}.jpg"></c:url>"></a> --%>
+					 <img height="192px" width="192px"  alt="${product.pid}"
+						src="<c:url value="/resources/images/product/${product.pid}.jpg"></c:url>">
 					<div class="desc">
 						<p>
 
@@ -41,7 +41,7 @@ $(document).ready(function(){
 							${product.price}
 							<c:choose>
 								<c:when test="${LoggedIn}">
-									<form action="addtoCart/${userid}/${product.id}">
+									<form action="addtoCart/${userid}/${product.pid}">
 										<input type="submit" value="Add to Cart"
 											class="btn btn-xs btn-success btn-block">
 

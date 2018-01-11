@@ -35,11 +35,10 @@ width:100%;
 
 			<div class="col-xs-6 w3-animate-left">
 				<div class="img">
-					<img height="300px" width="300px" alt="${product.id}"
-						src="<c:url value="/resources/images/${product.id}.jpg"></c:url>">
+					<img height="300px" width="300px" alt="${product.pid}"
+						src="<c:url value="/resources/images/${product.pid}.jpg"></c:url>">
 					<div class="desc">
-						<%-- 	<strong>${product.name}</strong> --%>
-
+						
 					</div>
 				</div>
 			</div>
@@ -62,7 +61,7 @@ width:100%;
 								value="${product.description}" readonly="readonly">
 						</div>
 						<div>
-							<form action="../addtoCart/${userid}/${product.id}">
+							<form action="../addtoCart/${userid}/${product.pid}">
 								<input type="submit" value="Add to Cart"
 									class="btn btn-primary">
 

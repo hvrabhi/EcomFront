@@ -10,20 +10,20 @@
 
 
 <h3>
-			<c:if test="$(supplier.id==0}">
+			<c:if test="$(supplier.sid==0}">
 		       Add New Item
 	            </c:if>
-			<c:if test="${!empty supplier.id}">
-		      Update Supplier for Id: <c:out value="${supplier.id}" />
-				 <form:hidden path="id"/> 
+			<c:if test="${!empty supplier.sid}">
+		      Update Supplier for Id: <c:out value="${supplier.sid}" />
+				 <form:hidden path="sid"/> 
 			</c:if>
 			</h3>
 
 		
 	<div class="form-group">
 		<div class="col-xs-4">
-		<c:if test="${supplier.id!=0}">
-		<form:input type="hidden" name="id" path="id" iplaceholder="supplier Id" class="form-control" />
+		<c:if test="${supplier.sid!=0}">
+		<form:input type="hidden" name="sid" path="sid" iplaceholder="supplier Id" class="form-control" />
 			</c:if>
 		</div>
 	</div>
@@ -38,7 +38,7 @@
 	</div>
 
 	<div class="form-group">
-		<label for="code" class="col-xs-4 control-label">Category description</label>
+		<label for="code" class="col-xs-4 control-label">Supplier Address</label>
 		<div class="col-xs-4">
 			<form:input name="supplierAddress" id="merocode" path="supplierAddress" placeholder="Supplier Address" maxlength="15" class="form-control" />
 		</div>
@@ -52,10 +52,10 @@
 		<div class="col-xs-4">
 		
 			
-		<c:if test="${supplier.id==0}">
+		<c:if test="${supplier.sid==0}">
 		<input type="submit" value="Add Supplier" id="btn-add" class="btn btn-primary" >
 		
-		</c:if> <c:if test="${supplier.id!=0}">
+		</c:if> <c:if test="${supplier.sid!=0}">
 		
 	   <input type="submit" value="Update Supplier" id="btn-update" class="btn btn-primary" >
 	  </c:if>
@@ -81,14 +81,14 @@
 				<c:forEach items="${supplierList}" var="supplier" varStatus="loopCounter">
 					<tr>
 						<td><c:out value="${loopCounter.count}" /></td>
-						<td><c:out value="${supplier.id}" /></td>
+						<td><c:out value="${supplier.sid}" /></td>
 						<td><c:out value="${supplier.supplierName}" /></td>
 						<td><c:out value="${supplier.supplierAddress}" /></td>
 						
 						<td><nobr>
-<a class="btn btn-primary" href="editsupplier/${supplier.id}"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Edit</a>
+<a class="btn btn-primary" href="editsupplier/${supplier.sid}"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Edit</a>
 
-<a class="btn btn-primary"  href="removesupplier/${supplier.id}"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Delete
+<a class="btn btn-primary"  href="removesupplier/${supplier.sid}"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Delete
 								</a>
 
 							</nobr></td>

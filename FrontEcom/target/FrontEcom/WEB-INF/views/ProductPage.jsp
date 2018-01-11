@@ -10,20 +10,20 @@
 
 
 <h3 align="center">
-			<c:if test="$(category.id==0}">
+			<c:if test="$(category.cid==0}">
 		       Add New Item
 	            </c:if>
-			<c:if test="${!empty product.id}">
-		      Update Product for Id: <c:out value="${product.id}" />
-				 <form:hidden path="id"/> 
+			<c:if test="${!empty product.pid}">
+		      Update Product for Id: <c:out value="${product.pid}" />
+				 <form:hidden path="pid"/> 
 			</c:if>
 			</h3>
 
 		
 	<div class="form-group">
 		<div class="col-xs-4">
-		<c:if test="${product.id!=0}">
-		<form:input type="hidden" name="id" path="id" iplaceholder="product Id" class="form-control" />
+		<c:if test="${product.pid!=0}">
+		<form:input type="hidden" name="pid" path="pid" iplaceholder="product Id" class="form-control" />
 			</c:if>
 		</div>
 	</div>
@@ -33,7 +33,7 @@
 	<div class="form-group">
 		<label for="category Name" class="col-xs-4 control-label">Product Name</label>
 		<div class="col-xs-4">
-			<form:input name="id" path="name" placeholder="Product Name" class="form-control" />
+			<form:input name="name" path="name" placeholder="Product Name" class="form-control" />
 		</div>
 	</div>
 
@@ -61,24 +61,13 @@
 	</div>
 	
 
-<%-- 
-
-	<div class="form-group">
-		<label for="Product Price" class="col-xs-4 control-label">Product instock</label>
-		<div class="col-xs-4">
-			<form:input name="id" path="instock" placeholder="Product instock" class="form-control" />
-		</div>
-	</div>
- --%>
-	<!-- 	List of Category	 -->
-
 	
 	<div class="form-group">
 		<label for="Product Category" class="col-xs-4 control-label">Product Category</label>
 		<div class="col-xs-4">		
 	<form:select class="form-control" path="category_id" required="true">
 	<c:forEach items="${categoryList}" var="category">
-	<form:option class="form-control" value="${category.id}">${category.categoryName}	     </form:option>
+	<form:option class="form-control" value="${category.cid}">${category.categoryName}	     </form:option>
 	</c:forEach>
 	</form:select>
 		</div>
@@ -91,7 +80,7 @@
 		<div class="col-xs-4">		
 	<form:select class="form-control" path="supplier_id" required="true">
 	<c:forEach items="${supplierList}" var="supplier">
-	<form:option class="form-control" value="${supplier.id}">${supplier.supplierName}	     </form:option>
+	<form:option class="form-control" value="${supplier.sid}">${supplier.supplierName}	     </form:option>
 	</c:forEach>
 	</form:select>
 		</div>
@@ -114,10 +103,10 @@
 		<div class="col-xs-4">
 		
 			
-		<c:if test="${product.id==0}">
+		<c:if test="${product.pid==0}">
 		<input type="submit" value="Add Product" id="btn-add" class="btn btn-primary" >
 		
-		</c:if> <c:if test="${product.id!=0}">
+		</c:if> <c:if test="${product.pid!=0}">
 		
 	   <input type="submit" value="Update Product" id="btn-update" class="btn btn-primary" >
 	  </c:if>
@@ -146,7 +135,7 @@
 				<c:forEach items="${productList}" var="product" varStatus="loopCounter">
 					<tr>
 						<td><c:out value="${loopCounter.count}" /></td>
-						<td><c:out value="${product.id}" /></td>
+						<td><c:out value="${product.pid}" /></td>
 						<td><c:out value="${product.name}" /></td>
 						<td><c:out value="${product.description}" /></td>
 						<td><c:out value="${product.price}" /></td>
@@ -155,9 +144,9 @@
 						<td><c:out value="${product.supplier_id}" /></td>
 						
 						<td><nobr>
-<a class="btn btn-primary" href="editproduct/${product.id}"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Edit</a>
+<a class="btn btn-primary" href="editproduct/${product.pid}"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Edit</a>
 
-<a class="btn btn-primary"  href="removeproduct/${product.id}"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Delete
+<a class="btn btn-primary"  href="removeproduct/${product.pid}"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Delete
 								</a>
 
 							</nobr></td>

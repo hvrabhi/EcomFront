@@ -1,3 +1,4 @@
 com\spring\admincontroller.class
 com\spring\cartcontroller.class
+com\spring\checkoutcontroller.class
 com\spring\indexcontroller.class

@@ -21,12 +21,12 @@ $(document).ready(function(){
 		<!-- 
 			<div class="col-xs-3 w3-animate-zoom">
 		 -->		<div class="thumbnail">
-					<img class="img-responsive" style="padding-top: 5px" src="<c:url value="/resources/images/${product.id }.jpg" ></c:url>">
+					<img class="img-responsive" style="padding-top: 5px" src="<c:url value="/resources/images/${product.pid }.jpg" ></c:url>">
 				 <div class="caption">
                   <h4 class="pull-right">${product.price}</h4>
                   <h4><a href=  "#">${product.name}</a></h4>
                   <p>${product.description}.</p>
-                								<form action="addToCart/${product.id}">
+                								<form action="addToCart/${product.pid}">
 										<input type="submit" value="Add to Cart" class="btn btn-primary" >
 
 									</form>

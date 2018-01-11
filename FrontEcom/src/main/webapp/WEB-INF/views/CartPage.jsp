@@ -18,15 +18,6 @@
 <!-- scripts -->
 <script src="resources/lib/jquery/jquery-1.10.2.js"></script>
 <script src="resources/lib/bootstrap-3.3.6/js/bootstrap.min.js"></script>
-
-
-
-
-<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
- -->
 <style type="text/css">
 	.bs-example{
     	margin: 20px;

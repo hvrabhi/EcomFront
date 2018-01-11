@@ -10,7 +10,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Example of Bootstrap 3 Dropdowns within a Navbar</title>
+<title>WELCOME</title>
 
 
 <link href="resources/lib/bootstrap-3.3.6/css/bootstrap.min.css"
@@ -42,7 +42,7 @@
 			</div>
 			<div id="navbar" class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
-					<li class="active"><a href="index.html"><span
+					<li class="active"><a href="#"><span
 							class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a></li>
 					
 
@@ -61,7 +61,7 @@
 							<c:forEach items="${categoryList}" var="category">
 
 								<li><a class="alink"
-									href=" nav/<c:out value="${category.id}" />"> <c:out
+									href=" nav/<c:out value="${category.cid}" />"> <c:out
 											value="${category.categoryName}" />
 								</a></li>
 
@@ -75,7 +75,7 @@
 					<sec:authorize access="isAuthenticated()">
 						<li><a style="color: white"
 							href="${pageContext.request.contextPath}/Home">Hello <b><sec:authentication
-										property="principal.username" /></b></a></li>
+							property="principal.username" /></b></a></li>
 
 						<li><c:url value="/j_spring_security_logout" var="logoutUrl" />
 							<a href="${logoutUrl}">Log Out</a><span
@@ -99,50 +99,6 @@
 	<br>
 	<br>
 	<br>
-	<div class="container">
-		<c:forEach items="${HomeList}" var="product">
-
-			<div class="col-md-4">
-				<!-- 
-			<div class="col-xs-3 w3-animate-zoom">
-		 -->
-				<div class="thumbnail">
-					<img class="img-thumbnail" style="padding-top: 12px" src="base-instance/${product.image}">
-					<div class="caption">
-						<h4 class="pull-right">${product.price}</h4>
-						<h4>
-							<a href="#">${product.name}</a>
-						</h4>
-						<p>${product.description}.</p>
-						<form action="addToCart/${product.id}">
-							<input type="submit" value="Add to Cart" class="btn btn-primary">
-
-						</form>
-
-					</div>
-				</div>
-			</div>
-		</c:forEach>
-	</div>
-
-
-
-	<c:choose>
-		<c:when test="${!empty SuccessMessage}">
-			<td colspan="2">
-				<div class="alert alert-success fade in">
-					<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>${SuccessMessage}
-				</div>
-			</td>
-		</c:when>
-		<c:when test="${!empty ExistingMessage}">
-			<td colspan="2">
-				<div class="alert alert-danger fade in">
-					<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>${ExistingMessage}
-				</div>
-			</td>
-		</c:when>
-	</c:choose>
 
 
 	<c:if test="${LoginPageClicked}">
@@ -178,7 +134,7 @@
 	</c:choose>
 	<script type="text/javascript">
 	
-<$(function() {
+$(function() {
  $('#test').delay(1000).fadeOut();
 });
 

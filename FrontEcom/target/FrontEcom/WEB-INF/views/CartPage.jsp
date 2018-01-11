@@ -18,15 +18,6 @@
 <!-- scripts -->
 <script src="resources/lib/jquery/jquery-1.10.2.js"></script>
 <script src="resources/lib/bootstrap-3.3.6/js/bootstrap.min.js"></script>
-
-
-
-
-<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
- -->
 <style type="text/css">
 	.bs-example{
     	margin: 20px;
@@ -56,7 +47,7 @@
                      
                         <td class="col-sm-8 col-md-6">
                         <div class="thumbnail">
-                         <a class="thumbnail pull-left" href="#"> <img src="/DTProjectBackEnd/imageDisplay?id=${cart.productid}" style="height:50px;height: 50px" > </a>
+                         <a class="thumbnail pull-left" href="#"> <img src="/FrontEcom/imageDisplay?id=${cart.productid}" style="height:50px;height: 50px" > </a>
                             <div class="media-body">
                                 <h4 class="media-heading"><a href="#">${cart.productName}</a></h4>
                                 <h5 class="media-heading"> by <a href="#">Brand name</a></h5>
@@ -64,7 +55,7 @@
                             </div>
                         </div></td>
                         <td class="col-sm-1 col-md-1" style="text-align: center">
-                        <form action="editCart/${cart.id}">
+                        <form action="editCart/${cart.cartid}">
                         <input type="text" class="form-control" id="exampleInputEmail1" name="quantity" value="${cart.productQuantity }" >
                         
                         </form>
@@ -72,7 +63,7 @@
                         <td class="col-sm-1 col-md-1 text-center"><strong>${cart.productPrice}</strong></td>
                         <td class="col-sm-1 col-md-1 text-center"><strong>${cart.subTotal}</strong></td>
                         <td class="col-sm-1 col-md-1">
-                        <a href="removeCart/${cart.id }" type="button" class="btn btn-danger">
+                        <a href="removeCart/${cart.cartid }" type="button" class="btn btn-danger">
                           <span class="glyphicon glyphicon-remove"></span> Remove
                         </a>
                         
@@ -81,20 +72,6 @@
                           
                     </c:forEach>   
                           
-                    <tr>
-                        <td>   </td>
-                        <td>   </td>
-                        <td>   </td>
-                        <td><h5>Subtotal</h5></td>
-                        <td class="text-right"><h5><strong>${cart.subTotal}</strong></h5></td>
-                    </tr>
-                    <tr>
-                        <td>   </td>
-                        <td>   </td>
-                        <td>   </td>
-                        <td><h5>Estimated shipping</h5></td>
-                        <td class="text-right"><h5><strong>$6.94</strong></h5></td>
-                    </tr>
                     <tr>
                         <td>   </td>
                         <td>   </td>
@@ -113,9 +90,9 @@
                         
                         </td>
                         <td>
-                        <button type="button" class="btn btn-success">
-                            Checkout <span class="glyphicon glyphicon-play"></span>
-                        </button></td>
+                        <a href="checkout" class="btn btn-success">
+                             <span class="glyphicon glyphicon-play"></span> Checkout
+                        </a></td>
                     </tr>
                 </tbody>
             </table>

@@ -87,7 +87,6 @@ public class cartcontroller {
 			model.addAttribute("EmptyCart", "true");
 		}
 		model.addAttribute("IfViewCartClicked", "true");
-	//	model.addAttribute("HideOthers", "true");
 		return "CartPage";
 	}
 

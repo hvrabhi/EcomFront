@@ -10,20 +10,20 @@
 
 
 <h3>
-			<c:if test="$(category.id==0}">
+			<c:if test="$(category.cid==0}">
 		       Add New Item
 	            </c:if>
-			<c:if test="${!empty category.id}">
-		      Update Category for Id: <c:out value="${category.id}" />
-				 <form:hidden path="id"/> 
+			<c:if test="${!empty category.cid}">
+		      Update Category for Id: <c:out value="${category.cid}" />
+				 <form:hidden path="cid"/> 
 			</c:if>
 			</h3>
 
 		
 	<div class="form-group">
 		<div class="col-xs-4">
-		<c:if test="${category.id!=0}">
-		<form:input type="hidden" name="id" path="id" iplaceholder="Category Id" class="form-control" />
+		<c:if test="${category.cid!=0}">
+		<form:input type="hidden" name="cid" path="cid" iplaceholder="Category Id" class="form-control" />
 			</c:if>
 		</div>
 	</div>
@@ -55,10 +55,10 @@
 		<div class="col-xs-4">
 		
 			
-		<c:if test="${category.id==0}">
+		<c:if test="${category.cid==0}">
 		<input type="submit" value="Add Category" id="btn-add" class="btn btn-primary" >
 		
-		</c:if> <c:if test="${category.id!=0}">
+		</c:if> <c:if test="${category.cid!=0}">
 		
 	   <input type="submit" value="Update Category" id="btn-update" class="btn btn-primary" >
 	  </c:if>
@@ -84,14 +84,14 @@
 				<c:forEach items="${categoryList}" var="category" varStatus="loopCounter">
 					<tr>
 						<td><c:out value="${loopCounter.count}" /></td>
-						<td><c:out value="${category.id}" /></td>
+						<td><c:out value="${category.cid}" /></td>
 						<td><c:out value="${category.categoryName}" /></td>
 						<td><c:out value="${category.categoryDescription}" /></td>
 						
 						<td><nobr>
-<a class="btn btn-primary" href="editcategory/${category.id}"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Edit</a>
+<a class="btn btn-primary" href="editcategory/${category.cid}"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Edit</a>
 
-<a class="btn btn-primary"  href="removecategory/${category.id}"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Delete
+<a class="btn btn-primary"  href="removecategory/${category.cid}"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Delete
 								</a>
 
 							</nobr></td>

@@ -47,9 +47,9 @@
                      
                         <td class="col-sm-8 col-md-6">
                         <div class="thumbnail">
-                         <a class="thumbnail pull-left" href="${productlist }"> 
-                         <img height="50px"
-						width="50px" alt="${product.pid}"
+                         <a class="thumbnail pull-left" href="">
+                         <img height="192px"
+						width="192px" alt="${product.pid}"
 						src="<c:url value="/resources/images/${product.pid}.jpg"></c:url>"> </a>
                             <div class="media-body">
                                 <h4 class="media-heading"><a href="#">${cart.productName}</a></h4>

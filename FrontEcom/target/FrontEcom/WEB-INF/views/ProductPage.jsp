@@ -56,7 +56,7 @@
 	<div class="form-group">
 		<label for="Product Quantity" class="col-xs-4 control-label">Product Quantity</label>
 		<div class="col-xs-4">
-			<form:input name="id" path="quantity" placeholder="Product Quantity" class="form-control" />
+			<form:input name="id" path="instock" placeholder="Product Quantity" class="form-control" />
 		</div>
 	</div>
 	
@@ -128,6 +128,7 @@
 					<th width="2%">Product InStock</th>
 					<th width="2%">Product Category</th>
 					<th width="2%">Product Supplier</th>
+					<th width="2%">Product Image</th>
 					<th width="2%">Product Action</th>
 				</tr>
 			</thead>
@@ -142,7 +143,7 @@
 						<td><c:out value="${product.instock}" /></td>
 						<td><c:out value="${product.category_id}" /></td>
 						<td><c:out value="${product.supplier_id}" /></td>
-						
+						<td><img src="/resources/images/${product.pid}.jpg" height="50px" width="50px"></td>	
 						<td><nobr>
 <a class="btn btn-primary" href="editproduct/${product.pid}"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Edit</a>
 

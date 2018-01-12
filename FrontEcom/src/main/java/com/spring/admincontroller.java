@@ -143,30 +143,41 @@ static Logger logger = LoggerFactory.getLogger(admincontroller.class);
 		return "AdminPage";
 		
 	}
-	private Path path;
 	@RequestMapping(value="/saveProduct")
-	public String updateproduct(@ModelAttribute("product") Product product,HttpServletRequest request,Model m, RedirectAttributes attributes){
-			
-		attributes.addFlashAttribute("SuccessMessage", "Product has been added/Updated Successfully");
-		productDAO.saveProduct(product);
-		MultipartFile file = product.getImage();
-		String rootDirectory = request.getSession().getServletContext().getRealPath("/");
-		path = Paths.get(rootDirectory + "\\WEB-INF\\resources\\images\\" + product.getPid() + ".jpg");
-		if (file != null && !file.isEmpty()) {
-			try {
-				System.out.println("Image Saving Start");
-				file.transferTo(new File(path.toString()));
-				System.out.println("Image Saved");
-			} catch (Exception e) {
-				e.printStackTrace();
-				System.out.println("Error");
-				throw new RuntimeException("item image saving failed.", e);
-			}
-		}
-		return "redirect:/product";
-	}	
+	public String updateproduct(@ModelAttribute("product") Product product,HttpServletRequest request,Model m,
+			@RequestParam("file") MultipartFile file){
+				  productDAO.saveProduct(product);
+			  if (!file.isEmpty()) {
+					try {
+						byte[] bytes = file.getBytes();
 
+						String rootPath = System.getProperty("catalina.base");
+						File dir = new File(rootPath + File.separator+"wtpwebapps/FrontEcom/resources/images" );
+						if (!dir.exists())
+							dir.mkdirs();
+						 
+						File serverFile = new File(dir.getAbsolutePath()	+ File.separator +product.getPid()+".jpg" );
+						BufferedOutputStream stream = new BufferedOutputStream(
+								new FileOutputStream(serverFile));
+						stream.write(bytes);
+						stream.close();
+
+						logger.info("Server File Location="	+ serverFile.getAbsolutePath());
+
+					
+					} catch (Exception e) {
+						return "You failed to upload " + product.getPid() + " => " + e.getMessage();
+					}
+				} else {
+					return "You failed to upload " +product.getPid()+ " because the file was empty.";
+				}
+
+        return "redirect:/product";
+	}
 	
+	
+	
+		
 	@RequestMapping(value="editproduct/{id}",method=RequestMethod.GET)
 	public String editProduct(@PathVariable("id") int id,RedirectAttributes attributes)
 	{

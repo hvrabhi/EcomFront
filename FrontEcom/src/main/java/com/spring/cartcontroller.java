@@ -1,7 +1,11 @@
 package com.spring;
 
+import java.io.IOException;
 import java.util.List;
 
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -78,7 +82,6 @@ public class cartcontroller {
     @RequestMapping("viewcart")
 	public String viewCart(Model model, HttpSession session) {
     	
-		//int userId = (Integer) session.getAttribute("userid");
 		model.addAttribute("CartList", cartDAO.listCart());
 		 if(cartDAO.cartsize((Integer) session.getAttribute("userid"))!=0){
 			
@@ -123,6 +126,5 @@ public String continueshopping()
 return "redirect:/";	
 
 }
-
 
 }

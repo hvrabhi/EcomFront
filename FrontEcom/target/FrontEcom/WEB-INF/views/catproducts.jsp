@@ -29,11 +29,11 @@ $(document).ready(function(){
 				<div class="img">
 					<a href="${ProductList}"> <img height="192px"
 						width="192px" alt="${product.pid}"
-						src="<c:url value="/resources/images/${product.pid }.jpg"></c:url>">
+						src="<c:url value="/resources/images/${product.pid}.jpg"></c:url>">
 					</a>
 
 					 <img height="192px" width="192px"  alt="${product.pid}"
-						src="<c:url value="/resources/images/product/${product.pid}.jpg"></c:url>">
+						src="<c:url value="WEB-INF/resources/images/product/${product.pid}.jpg"></c:url>">
 					<div class="desc">
 						<p>
 

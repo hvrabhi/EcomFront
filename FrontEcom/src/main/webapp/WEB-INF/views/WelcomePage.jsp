@@ -88,6 +88,7 @@
 								class="glyphicon glyphicon-shopping-cart">
 									${CartPrice},${cartsize}</span>
 						</a></li>
+						<li><a href="showinvoice"> Invoice</a></li>
 					</sec:authorize>
 
 

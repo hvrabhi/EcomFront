@@ -52,13 +52,14 @@ public class checkoutcontroller {
 	public String showShippingPage(@ModelAttribute("address") Address address,BindingResult result, HttpSession session,Model model){
 		
 		User user = (User) session.getAttribute("user");
+		List<Cart> cartList = cartDAO.listCartbyUserId((Integer) session.getAttribute("userid"));
 		
-		model.addAttribute("CartList", cartDAO.listCart());
-				
+		model.addAttribute("cartList", cartList);
+		model.addAttribute("addressList", addressDAO.getAllAddressOfUser((Integer) session.getAttribute("userid")));
+						
 		
 		return "shipping";
 	}
-	
 	
 	@RequestMapping(value="selectShippingAddress",method = RequestMethod.POST)
 	public String selectShippingAddress(@RequestParam("shipaddress") int id,HttpSession session,Model m,RedirectAttributes attributes){
@@ -68,38 +69,39 @@ public class checkoutcontroller {
 		Address address = addressDAO.getAddressById(id);
 		session.setAttribute("address", address);
 		attributes.addFlashAttribute("address", address);
-		attributes.addFlashAttribute("cartTotalAmount", cartDAO.CartPrice(user.getId()));
+		attributes.addFlashAttribute("cartTotalAmount", cartDAO.CartPrice((Integer) session.getAttribute("userid")));
 		
 		return "redirect:/showpaymentPage";
 	}
-	
 	@RequestMapping(value="saveShippingAddress",method = RequestMethod.POST)
 	public String saveShippingPage(@Valid @ModelAttribute("address") Address address,BindingResult result, HttpSession session,Model m,RedirectAttributes attributes){
 		if(result.hasErrors()){
 			System.out.println(result.getAllErrors().toString());
 			return "shipping";
 		}else{
-		User users = (User) session.getAttribute("users");
+		User user = (User) session.getAttribute("user");
 		address.setCreatedBy("SYSTEM");
 		address.setCreatedTimestamp(new Timestamp(System.currentTimeMillis()));
+		address.setPersonId((Integer) session.getAttribute("userid"));
 		
 		addressDAO.saveOrUpdate(address);
 		session.setAttribute("address", address);
 		attributes.addFlashAttribute("address", address);
+		attributes.addFlashAttribute("cartTotalAmount", cartDAO.CartPrice((Integer) session.getAttribute("userid")));
 		
 		return "redirect:/showpaymentPage";
 		}
 	}
-	
+
 	@RequestMapping(value="showpaymentPage")
 	public String showPaymentPage(@ModelAttribute("payment") Payment payment,BindingResult result,HttpSession session,Model model){
 		User user = (User) session.getAttribute("user");
 		Address address = (Address) session.getAttribute("address");
 		model.addAttribute("address", address);
+		model.addAttribute("cartTotalAmount", cartDAO.CartPrice((Integer) session.getAttribute("userid")));
 		
 		return "paymentPage";
 	}
-	
 	@RequestMapping(value="selectPaymentMethod")
 	public String selectPaymentMethod(@Valid @ModelAttribute("payment") Payment payment,BindingResult result,HttpSession session,Model m,RedirectAttributes attributes){
 		if(result.hasErrors()){
@@ -118,11 +120,19 @@ public class checkoutcontroller {
 			paymentChoice = "Cash On Delivery";
 		}
 		
+		double totalAmount = cartDAO.CartPrice((Integer) session.getAttribute("userid"));
+		payment.setUserId((Integer) session.getAttribute("userid"));
+		payment.setTotalAmount(totalAmount);
+		paymentDAO.savePaymentInfo(payment);
+		
+		session.setAttribute("payment", payment);
+		attributes.addFlashAttribute("payment", payment);
+		attributes.addFlashAttribute("paymentChoice", paymentChoice);
+		attributes.addFlashAttribute("cartTotalAmount", totalAmount);
 		
 		return "redirect:/orderSummary";
 		}
 	}
-	
 	@RequestMapping(value="orderSummary",method = RequestMethod.GET)
 	public String showOrderSummary(HttpSession session,Model model){
 		
@@ -131,10 +141,11 @@ public class checkoutcontroller {
 		Payment payment = (Payment) session.getAttribute("payment");
 		model.addAttribute("address", address);
 		model.addAttribute("payment", payment);
+		model.addAttribute("cartTotalAmount", cartDAO.CartPrice((Integer) session.getAttribute("userid")));
+		model.addAttribute("cartList", cartDAO.listCartbyUserId((Integer) session.getAttribute("userid")));
 		model.addAttribute("productList",productDAO.list());
 		return "orderSummary";
 	}
-	
 	@RequestMapping(value="processOrder")
 	public String placeOrder(HttpSession session, Model model){
 				
@@ -145,7 +156,7 @@ public class checkoutcontroller {
 		
 		Payment payment = (Payment) session.getAttribute("payment");
 		
-		List<Cart> cartItemsList = cartDAO.listCart();
+		List<Cart> cartItemsList = cartDAO.listCartbyUserId((Integer) session.getAttribute("userid"));
 				
 		double totalAmount = 0;
 		
@@ -161,8 +172,13 @@ public class checkoutcontroller {
 			Orders order=new Orders();
 			String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
 			order.setOrderId(timeStamp);
-			
+			order.setUserId((Integer) session.getAttribute("userid"));
+			order.setShipAddressId(address.getId());
+			order.setPaymentId(payment.getId());
 			order.setTotalAmount(totalAmount);
+			order.setProductId(cartItem.getProductid());
+			order.setProductQuantity(cartItem.getProductQuantity());
+			order.setPrice(cartItem.getProductPrice());
 			order.setOrderStatus("PROCESSED");	
 			order.setCreatedTimestamp(new Timestamp(System.currentTimeMillis()));
 			order.setCreatedBy("SYSTEM");
@@ -181,14 +197,18 @@ public class checkoutcontroller {
 		
 		return "redirect:showinvoice";
 	}
-	
 	@RequestMapping(value="showinvoice")
 	public String showInvoiceAcknoledgement(HttpSession session,Model model){
 			
 		if(session != null){
 			
 			User user = (User) session.getAttribute("user");
-			model.addAttribute("productList", productDAO.list());
+			
+			List<Orders> orderList = orderDAO.getAllOrdersOfUser((Integer) session.getAttribute("userid"));
+			
+			
+		    model.addAttribute("orderList", orderList);
+		    model.addAttribute("productList", productDAO.list());
 		    model.addAttribute("categoryList", categoryDAO.list());
 		}
 		else{
@@ -198,7 +218,6 @@ public class checkoutcontroller {
 		}
 		return "acknowledgement";
 	}
-	
 	@InitBinder
 	public void initBinder(WebDataBinder binder) {
 	    binder.registerCustomEditor(String.class, new StringTrimmerEditor(true));

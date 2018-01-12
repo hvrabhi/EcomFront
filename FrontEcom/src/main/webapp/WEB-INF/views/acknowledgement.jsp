@@ -71,8 +71,8 @@
 					
 			<div class="media-body">
 			<c:forEach items="${productList}" var="product">	
-				<c:if test="${product.productId == order.productId}">
-			<h4 class="media-heading"><a href="">${product.productName}</a></h4>
+				<c:if test="${product.pid == order.productId}">
+			<h4 class="media-heading"><a href="">${product.name}</a></h4>
                                 <h5 class="media-heading"></h5>
                                 <span>Status: </span><span class="text-success"><strong>In Stock</strong></span>
                             </div>

@@ -25,6 +25,38 @@
 </style>
 </head>
 <body>
+<div class="bs-example">
+    <nav id="myNavbar" class="navbar navbar-inverse" role="navigation">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="container">
+            <div class="navbar-header">
+              <!--   <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> -->
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                
+                <a class="navbar-brand" href="#"></a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li><a href="continue_shopping">HOME</a></li>
+                    <li class="">
+                        <a href="#" > <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="category"></a></li>
+                            <li><a href="#"></a></li>
+                            <li><a href="#"></a></li>
+                            <li class="divider"></li>
+                            <li><a href="#"></a></li>
+                        </ul>
+                    </li>
+                </ul>
+                 </div>
+    </nav>
+</div>
+
 
 <div class="container">
     <div class="row">
@@ -48,9 +80,9 @@
                         <td class="col-sm-8 col-md-6">
                         <div class="thumbnail">
                          <a class="thumbnail pull-left" href="">
-                         <img height="192px"
-						width="192px" alt="${product.pid}"
-						src="<c:url value="/resources/images/${product.pid}.jpg"></c:url>"> </a>
+                         <img height="100px"
+						width="100px" alt="${cart.productid}"
+						src="<c:url value="/resources/images/${cart.productid}.jpg"></c:url>"> </a>
                             <div class="media-body">
                                 <h4 class="media-heading"><a href="#">${cart.productName}</a></h4>
                                 <h5 class="media-heading"> by <a href="#">Brand name</a></h5>

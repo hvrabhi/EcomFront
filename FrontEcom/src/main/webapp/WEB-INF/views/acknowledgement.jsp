@@ -67,7 +67,7 @@
 			<tr>
 			 <td class="col-sm-8 col-md-6">
 			<div class="media">
-			 <a class="thumbnail pull-left" href=""><img class="media-object" src="/medical/myImage/imageDisplay?id=${order.productId}" class="img-thumbnail" width="72px" height="72px"/></a>
+			 <a class="thumbnail pull-left" href=""><img class="media-object" src="/resources/images/${order.productId}.jpg" class="img-thumbnail" width="72px" height="72px"/></a>
 					
 			<div class="media-body">
 			<c:forEach items="${productList}" var="product">	

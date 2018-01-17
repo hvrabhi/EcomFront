@@ -18,9 +18,7 @@ $(document).ready(function(){
 		<c:forEach items="${ListProduct}" var="product">
 		
 		<div class="col-md-4">
-		<!-- 
-			<div class="col-xs-3 w3-animate-zoom">
-		 -->		<div class="thumbnail">
+				<div class="thumbnail">
 					<img class="img-responsive" style="padding-top: 5px" src="<c:url value="/resources/images/${product.pid}.jpg" ></c:url>">
 				 <div class="caption">
                   <h4 class="pull-right">${product.price}</h4>

@@ -22,7 +22,7 @@ $(document).ready(function(){
 					<img class="img-responsive" style="padding-top: 5px" src="<c:url value="/resources/images/${product.pid}.jpg" ></c:url>">
 				 <div class="caption">
                   <h4 class="pull-right">${product.price}</h4>
-                  <h4><a href=  "#">${product.name}</a></h4>
+                  <h4><a class="alink" href=  "#">${product.name}</a></h4>
                   <p>${product.description}.</p>
                 								<form action="addToCart/${product.pid}">
 										<input type="submit" value="Add to Cart" class="btn btn-primary" >
@@ -34,6 +34,15 @@ $(document).ready(function(){
 			</div>
 		</c:forEach>
 	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
 		<c:choose>
 		<c:when test="${UserClickedCart}">
 			<c:import url="/WEB-INF/views/CartPage.jsp"></c:import>

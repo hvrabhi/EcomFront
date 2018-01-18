@@ -101,7 +101,6 @@ import com.spring.model.User;
 			     {
 			    	 session.setAttribute("Administrator", "true");
 			    	 model.addAttribute("product",  new Product());
-			    	 model.addAttribute("ProductPageClicked", "true");
 			    	 model.addAttribute("supplierList",supplierDAO.list());
 			    	 model.addAttribute("categoryList",categoryDAO.list());
 				 return "/AdminPage";
@@ -132,23 +131,7 @@ import com.spring.model.User;
 			attributes.addFlashAttribute("SuccessMessage","Registration Successfull");
 			return "redirect:/";
 		}
-		
-		@RequestMapping(value = "navproducts/${id}")
-		public String listCategory(Model model,@PathVariable("id") int id,RedirectAttributes attributes) {
-		
-			model.addAttribute("navproducts", productDAO.getProductByCategory(id));
-			model.addAttribute("Clickedcatproduct", "true");
-			return "catproducts";
-		}
-		
-
-		  @RequestMapping(value ="ShowProduct/{id}" )
-		    public String ShowProduct(@PathVariable("id") int id,RedirectAttributes attributes,Model m) {
-		        m.addAttribute("UserClickedshowproduct", "true");
-		        m.addAttribute("productList", productDAO.getProductById(id));
-		    	return "ShowProduct";
-		    }
-		
+				
 		
 		
 

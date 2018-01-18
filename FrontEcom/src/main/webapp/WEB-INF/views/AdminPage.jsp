@@ -37,13 +37,10 @@
                     <li><a href="#">Home</a></li>
                      </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="dropdown">
-                        <a href="#" data-toggle="dropdown" class="dropdown-toggle">Admin <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="category">Category</a></li>
+                    		 <li><a href="category">Category</a></li>
                             <li><a href="supplier">Supplier</a></li>
                             <li><a href="product">Product</a></li>
-                            <li class="divider"></li>
+                           
                            <li> <a href="<c:url value="j_spring_security_logout" />">Logout</a></li>
                             
                            

@@ -106,7 +106,20 @@
                           </tr>
                           
                     </c:forEach>   
-                          
+                           <tr>
+                        <td>   </td>
+                        <td>   </td>
+                        <td>   </td>
+                        <td><h5>Subtotal</h5></td>
+                        <td class="text-right"><h5><strong>${cart.subTotal}</strong></h5></td>
+                    </tr>
+                    <tr>
+                        <td>   </td>
+                        <td>   </td>
+                        <td>   </td>
+                        <td><h5>Estimated shipping</h5></td>
+                        <td class="text-right"><h5><strong>50/-</strong></h5></td>
+                    </tr>
                     <tr>
                         <td>   </td>
                         <td>   </td>

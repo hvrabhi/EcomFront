@@ -14,7 +14,7 @@
 
 </head>
 
-<body>
+<body style = "background : url(http://s1.picswalls.com/wallpapers/2015/09/20/background-hd-2015_111526235_269.jpg); background-size:100% ;">
 <div class="bs-example">
     <nav id="myNavbar" class="navbar navbar-inverse" role="navigation">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -49,17 +49,18 @@
 
 
 <div id="wrap">
-<div class="container clear-top">
+<div class="container clear-top" >
 <c:if test="${not empty addressList}">
 	<form  action="selectShippingAddress" method="post">
 			<h3>Select a delivery Address:</h3>
 			<hr>
-			<div class="row">
+			<div class="row" >
 			<c:forEach var="address" items="${addressList}" varStatus="loopCounter">
 			<div class="col-md-4 col-xs-4">
 						<c:choose>	
 						<c:when test="${loopCounter.index==0}">
 								<div class="radio">
+								<font color="red">
 								<input type="radio" name="shipaddress" value="${address.id}" checked> <p> ${address.name}<br/>
 					      		${address.address1}
 					      		<br/>${address.address2}
@@ -71,7 +72,7 @@
 					      		<c:when test="${not empty address.phone}">${address.phone}</c:when>
 					      		</c:choose>
 					      		 </p>
-					      		 </div>	
+					      		 </div>	</font>
 					      </c:when>
 					      <c:otherwise>
 					      	<div class="radio">

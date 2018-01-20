@@ -12,7 +12,7 @@
 <title>Acknowledgement</title>
 </head>
 
-<body>
+<body style = "background : url(http://s1.picswalls.com/wallpapers/2015/09/20/background-hd-2015_111526235_269.jpg); background-size:100% ;">
 <div class="bs-example">
     <nav id="myNavbar" class="navbar navbar-inverse" role="navigation">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -41,7 +41,7 @@
 <div id="wrap">
 <div id="main" class="container clear-top">
 
-<h4><font color="blue">Your order has been placed successfully. Thank you for shopping with us.</font> </h4>
+<h4><font color="red">Your order has been placed successfully. Thank you for shopping with us.</font> </h4>
 
 <div class="row">
 	 <div class="col-sm-12 col-md-10 col-md-offset-1">

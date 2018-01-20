@@ -24,7 +24,7 @@
     }
 </style>
 </head>
-<body>
+<body style = "background : url(http://s1.picswalls.com/wallpapers/2015/09/20/background-hd-2015_111526235_269.jpg); background-size:100% ;">
 <div class="bs-example">
     <nav id="myNavbar" class="navbar navbar-inverse" role="navigation">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -106,13 +106,6 @@
                           </tr>
                           
                     </c:forEach>   
-                           <tr>
-                        <td>   </td>
-                        <td>   </td>
-                        <td>   </td>
-                        <td><h5>Subtotal</h5></td>
-                        <td class="text-right"><h5><strong>${cart.subTotal}</strong></h5></td>
-                    </tr>
                     <tr>
                         <td>   </td>
                         <td>   </td>

@@ -68,7 +68,7 @@ import com.spring.model.User;
 	    	if(logout!=null)
 	    		model.addAttribute("logout","Loggedout successfully");
 	    		model.addAttribute("LoginPageClicked", true);
-	    	return "WelcomePage";
+	    	return "LoginPage";
 	    	
 	    }
 	    
@@ -120,7 +120,7 @@ import com.spring.model.User;
 			mv.addAttribute("user", new User());
 			mv.addAttribute("IfRegisterClicked", "true");
 
-			return "WelcomePage";
+			return "RegistrationPage";
 		}
 
 		@RequestMapping(value = "/saveUser", method = RequestMethod.POST)
@@ -129,7 +129,7 @@ import com.spring.model.User;
 			user.setRole("ROLE_USER");
 			userDAO.saveOrUpdate(user);
 			attributes.addFlashAttribute("SuccessMessage","Registration Successfull");
-			return "redirect:/";
+			return "redirect:/login";
 		}
 				
 		

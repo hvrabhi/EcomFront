@@ -14,7 +14,7 @@
 <title>Order Summary</title>
 </head>
 
-<body>
+<body style = "background : url(http://s1.picswalls.com/wallpapers/2015/09/20/background-hd-2015_111526235_269.jpg); background-size:100% ;">
 
 <div class="bs-example">
     <nav id="myNavbar" class="navbar navbar-inverse" role="navigation">

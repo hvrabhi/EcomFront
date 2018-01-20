@@ -25,7 +25,7 @@
 }
 </style>
 </head>
-<body>
+<body style = "background : url(http://s1.picswalls.com/wallpapers/2015/09/20/background-hd-2015_111526235_269.jpg); background-size:100% ;">
 	${error}
 	<nav class="navbar navbar-inverse  navbar-fixed-top" role="navigation">
 
@@ -136,10 +136,6 @@
     <span class="sr-only">Next</span>
   </a>
 </div>
-
-	<c:if test="${LoginPageClicked}">
-		<jsp:include page="LoginPage.jsp"></jsp:include>
-	</c:if>
 
 	<c:choose>
 		<c:when test="${IfViewCartClicked}">

@@ -116,7 +116,7 @@
 	</div>
 </form:form>
 
-
+<font color="red">
 		<table class="table table-striped table-bordered"  style="width: 80%">
 			<thead>
 				<tr>
@@ -131,7 +131,7 @@
 					<th width="2%">Product Image</th>
 					<th width="2%">Product Action</th>
 				</tr>
-			</thead>
+			</thead></font>
 			<tbody>
 				<c:forEach items="${productList}" var="product" varStatus="loopCounter">
 					<tr>
@@ -143,7 +143,7 @@
 						<td><c:out value="${product.instock}" /></td>
 						<td><c:out value="${product.category_id}" /></td>
 						<td><c:out value="${product.supplier_id}" /></td>
-						<td><img src="/resources/images/${product.pid}.jpg" height="50px" width="50px"></td>	
+						<td><img src="http://localhost:9999/FrontEcom/resources/images/${product.pid}.jpg" height="50px" width="50px"></td>	
 						<td><nobr>
 <a class="btn btn-primary" href="editproduct/${product.pid}"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Edit</a>
 

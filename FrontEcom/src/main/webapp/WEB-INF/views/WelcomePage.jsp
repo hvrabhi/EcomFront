@@ -25,7 +25,7 @@
 }
 </style>
 </head>
-<body style = "background : url(http://s1.picswalls.com/wallpapers/2015/09/20/background-hd-2015_111526235_269.jpg); background-size:100% ;">
+<body style = "background : url(http://s1.picswalls.com/wallpapers/2016/06/06/eiffel-tower-desktop-background_094749463_307.jpg); background-size:100% ;">
 	${error}
 	<nav class="navbar navbar-inverse  navbar-fixed-top" role="navigation">
 
@@ -100,42 +100,6 @@
 	<br>
 	<br>
 	<br>
-<div class="container">
-<div id="myCarousel" class="carousel slide" data-ride="carousel">
-  <!-- Indicators -->
-  <ol class="carousel-indicators">
-    <li data-target="#myCarousel" data-slide-to="1" class="active"></li>
-    <li data-target="#myCarousel" data-slide-to="2" class="active"></li>
-    <li data-target="#myCarousel" data-slide-to="3" class="active"></li>
-  </ol>
-
-  <!-- Wrapper for slides -->
-  <div class="carousel-inner">
-    <div class="item active">
-      <img class="img-rounded" class="img-responsive center-block"
-      src="resources/images/bike.jpg" style="width:100%" "height="50%">
-    </div>
-    <div class="item">
-    <img class="img-rounded" class="img-responsive center-block"
-      src="resources/images/bike2.jpg" style="width:100%" "height="50%">
-    </div>
-
-    <div class="item">
-    <img class="img-rounded" class="img-responsive center-block"
-      src="resources/images/bike4.jpg" style="width:100%" "height="50%">
-    </div>
- 
-  </div>
-  <!-- Left and right controls -->
-  <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-    <span class="glyphicon glyphicon-chevron-left"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="right carousel-control" href="#myCarousel" data-slide="next">
-    <span class="glyphicon glyphicon-chevron-right"></span>
-    <span class="sr-only">Next</span>
-  </a>
-</div>
 
 	<c:choose>
 		<c:when test="${IfViewCartClicked}">

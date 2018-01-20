@@ -13,6 +13,7 @@
 			<c:if test="$(supplier.sid==0}">
 		       Add New Item
 	            </c:if>
+	            
 			<c:if test="${!empty supplier.sid}">
 		      Update Supplier for Id: <c:out value="${supplier.sid}" />
 				 <form:hidden path="sid"/> 
@@ -27,7 +28,6 @@
 			</c:if>
 		</div>
 	</div>
-
 
 
 	<div class="form-group">
@@ -59,8 +59,6 @@
 		
 	   <input type="submit" value="Update Supplier" id="btn-update" class="btn btn-primary" >
 	  </c:if>
-		
-		
 		</div>
 	</div>
 </form:form>
@@ -97,6 +95,6 @@
 			</tbody>
 		</table>
 
-	
+
 
 

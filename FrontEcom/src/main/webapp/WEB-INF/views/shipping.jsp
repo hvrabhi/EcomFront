@@ -14,7 +14,7 @@
 
 </head>
 
-<body style = "background : url(http://s1.picswalls.com/wallpapers/2015/09/20/background-hd-2015_111526235_269.jpg); background-size:100% ;">
+<body style = "background : url(http://s1.picswalls.com/wallpapers/2016/06/06/eiffel-tower-desktop-background_094749463_307.jpg); background-size:100% ;">
 <div class="bs-example">
     <nav id="myNavbar" class="navbar navbar-inverse" role="navigation">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -31,18 +31,9 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li><a href="continue_shopping">HOME</a></li>
-                    <li class="">
-                        <a href="#" data-toggle="" class="dropdown-toggle"> <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="category"></a></li>
-                            <li><a href="#"></a></li>
-                            <li><a href="#"></a></li>
-                            <li class="divider"></li>
-                            <li><a href="#"></a></li>
-                        </ul>
-                    </li>
-                </ul>
+                   <li class="active"><a href="http://localhost:9999/FrontEcom/"><span
+							class="glyphicon glyphicon-home" aria-hidden="true"></span> HOME</a></li>
+                    </ul>
                  </div>
     </nav>
 </div>
